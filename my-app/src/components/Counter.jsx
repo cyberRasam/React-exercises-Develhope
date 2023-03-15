@@ -5,17 +5,17 @@ export class Counter extends React.Component{
     constructor(props){
         super(props) 
         this.state = {
-            count: 0,
+            count: this.props.initialValue,
         }
         setInterval(
             () => {
                 this.setState((state) => {
                     return {
-                        count : this.state.count +1
+                        count : this.state.count + this.props.incAmount
                     }
                 })
             }
-        ,1000)
+        ,this.props.incTime)
     }
 
     render() {
