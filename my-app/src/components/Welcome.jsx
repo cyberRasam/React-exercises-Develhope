@@ -12,7 +12,7 @@ export class Welcome extends React.Component {
           ? <p>Welcome {this.props.name}</p> 
           : <p>Welcome Guest</p>
         }
-        {this.props.age >= 18 && this.props.age <= 65 ? <Age age= {this.props.age}></Age> : <p>You must between 18 and 65</p>}
+        {this.props.age >= 18 && this.props.age <= 65  && this.props.name === "John" ? <Age age= {this.props.age}></Age> : <p>You must between 18 and 65 and the name must be John</p>}
       </div>
 
       // <div>
