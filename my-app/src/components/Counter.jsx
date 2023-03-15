@@ -11,9 +11,12 @@ export class Counter extends React.Component{
         setInterval(
             () => {
                 this.setState((state) => {
-                    return {
-                        count : this.state.count + this.props.incAmount
-                    }
+                    const newCount = state.count + this.props.incAmount
+                    if (newCount > this.props.initialValue * 10) {
+                        return { count: this.props.initialValue };
+                      } else {
+                        return { count: newCount };
+                      }
                 })
             }
         ,this.props.incTime)
@@ -28,4 +31,10 @@ export class Counter extends React.Component{
             </div>
         )
     }
+}
+
+Counter.defaultProps = {
+    initialValue : 0,
+    incAmount : 1, 
+    incTime : 1000 
 }
