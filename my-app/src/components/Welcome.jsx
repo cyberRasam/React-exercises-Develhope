@@ -1,6 +1,5 @@
 import React from 'react';
 import { Age } from './Age';
-import { Clock } from './Clock';
 
 export class Welcome extends React.Component {
   render() {

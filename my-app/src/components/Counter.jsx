@@ -8,6 +8,9 @@ export class Counter extends React.Component{
         this.state = {
             count: this.props.initialValue,
         }
+    }
+    
+    componentDidMount () {
         setInterval(
             () => {
                 this.setState((state) => {
