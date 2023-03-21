@@ -11,7 +11,7 @@ export class App extends React.Component {
         <Hello />
         <Welcome name="John" age={19} />
         <Clock></Clock>
-        <Counter initialValue={100} incTime={500} incAmount={5}></Counter>
+        <Counter initialValue={100} incTime={1000} incAmount={5}></Counter>
       </div>
     );
   }
