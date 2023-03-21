@@ -13,17 +13,21 @@ export class Counter extends React.Component {
     this.intervalID = setInterval(() => {
       this.setState((state) => {
         const newCount = state.count + this.props.incAmount;
-        if (newCount > this.props.initialValue * 10) {
-          return { count: this.props.initialValue };
-        } else {
-          return { count: newCount };
-        }
+        return { count: newCount };
       });
     }, this.props.incTime);
   }
 
   componentWillUnmount() {
     clearInterval(this.intervalID);
+  }
+
+  componentDidUpdate(prevProp, prevState) {
+    if (this.state.count > this.props.initialValue * 10) {
+      this.setState((state) => {
+        return { count: this.props.initialValue };
+      });
+    }
   }
 
   render() {
