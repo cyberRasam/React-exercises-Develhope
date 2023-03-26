@@ -17,7 +17,7 @@ export class App extends React.Component {
         <Counter initialValue={10} incTime={500} incAmount={10}></Counter>
         <ClickTracker />
         <InteractiveWelcome /> 
-        <Login />
+        <Login  />
       </div>
     );
   }

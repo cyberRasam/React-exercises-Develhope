@@ -20,13 +20,22 @@ export class Login extends Component {
         })
     }
 
+    clickHandler = () => {
+        const { username, password, remember } = this.state;
+        this.props.onLogin({ username, password, remember });
+    }
+
   render() {
+    const {username, password} = this.state;
+    const isDisabled = !username || !password;
+
     return (
       <div className='login'>
         
-        <input type="text" name="username"/>
-        <input type="password" name="password" />
-        <input type="checkbox"  name="remember"/>
+        <input type="text" name="username" onChange={this.handleChange}/>
+        <input type="password" name="password" onChange={this.handleChange}/>
+        <input type="checkbox"  name="remember" onChange={this.handleChange}/> 
+        <button onLogin={this.clickHandler} disabled={isDisabled}>Login</button>
       </div>
     )
   }
