@@ -6,6 +6,7 @@ import { Counter } from './Counter';
 import { Hello } from './Hello';
 import InteractiveWelcome from './InteractiveWelcome';
 import Login from './Login';
+import ToDoList from './ToDoList';
 import UncontrolledLogin from './UncontrolledLogin';
 import { Welcome } from './Welcome';
 
@@ -27,7 +28,8 @@ export class App extends React.Component {
         <InteractiveWelcome /> 
         <Login  />
         <UncontrolledLogin /> */}
-        <Colors items={persons}/>
+        {/* <Colors items={persons}/> */}
+        <ToDoList />
       </div>
     );
   }
