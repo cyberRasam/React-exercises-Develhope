@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 
 export class Colors extends Component {
   render() {
-    const colors = this.props.items.map(e => <li>{e}</li>)
+    const persons = this.props.items.map((person) => <li key={person.id}>{person.name}</li>)
     return (
       <div>
         <ul>
-            {colors}
+            {persons}
         </ul>
       </div>
     )

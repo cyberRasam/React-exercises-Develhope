@@ -11,7 +11,12 @@ import { Welcome } from './Welcome';
 
 export class App extends React.Component {
   render() {
-    const colors = ["red", "blue", "white"]
+    const persons = [
+      {id: 1, name: "Rasam"},
+      {id: 2, name: "Roham"},
+      {id: 3, name: "Shy"},
+      {id: 4, name: "Behdad"}
+    ]
     return (
       <div>
         {/* <Hello />
@@ -22,7 +27,7 @@ export class App extends React.Component {
         <InteractiveWelcome /> 
         <Login  />
         <UncontrolledLogin /> */}
-        <Colors items={colors}/>
+        <Colors items={persons}/>
       </div>
     );
   }
