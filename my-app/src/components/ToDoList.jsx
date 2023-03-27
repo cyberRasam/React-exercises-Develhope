@@ -4,7 +4,7 @@ export class ToDoList extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            items: ["shopping", "running"],
+            items: [],
             todo : ''
         }
     }
@@ -27,13 +27,20 @@ export class ToDoList extends Component {
     }
 
 
+    resetHandler = (e) => {
+      this.setState({
+        items: []
+      })
+    }
+
   render() {
     const ourList = this.state.items.map(e=> <li>{e}</li>)
     
     return (
       <div>
         <input type="text" name="toDo" value={this.state.todo} onChange={this.handleInputChange} />
-        <button type='button' onClick={this.clickHandler}>Add ToDo</button>
+        <button type='button' onClick={this.clickHandler}>Add ToDo</button> 
+        <button type='button' onClick={this.resetHandler}>Reset</button>
         <ul>
             {ourList}
         </ul>
