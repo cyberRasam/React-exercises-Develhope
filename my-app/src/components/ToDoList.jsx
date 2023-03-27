@@ -33,8 +33,16 @@ export class ToDoList extends Component {
       })
     }
 
+    handleRemove = (index) => {
+      const items = [...this.state.items]
+      items.splice(index, 1)
+
+      this.setState({
+        items: items
+      })
+    } 
+
   render() {
-    const ourList = this.state.items.map(e=> <li>{e}</li>)
     
     return (
       <div>
@@ -42,7 +50,14 @@ export class ToDoList extends Component {
         <button type='button' onClick={this.clickHandler}>Add ToDo</button> 
         <button type='button' onClick={this.resetHandler}>Reset</button>
         <ul>
-            {ourList}
+            {this.state.items.map(
+            (element, index) => 
+              <li key={index}>
+                {element}
+                <button type='button' onClick={this.handleRemove}>Remove</button>
+              </li>
+              )
+            }
         </ul>
       </div>
     )
