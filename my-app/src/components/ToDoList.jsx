@@ -43,13 +43,14 @@ export class ToDoList extends Component {
     } 
 
   render() {
-    
+    const {render} = this.props;
+    const {items} = this.state
     return (
       <div>
         <input type="text" name="toDo" value={this.state.todo} onChange={this.handleInputChange} />
         <button type='button' onClick={this.clickHandler}>Add ToDo</button> 
         <button type='button' onClick={this.resetHandler}>Reset</button>
-        <ul>
+        {/* <ul>
             {this.state.items.map(
             (element, index) => 
               <li key={index}>
@@ -58,7 +59,9 @@ export class ToDoList extends Component {
               </li>
               )
             }
-        </ul>
+        </ul> */}
+        {render(items, this.handleRemove)}
+
       </div>
     )
   }
