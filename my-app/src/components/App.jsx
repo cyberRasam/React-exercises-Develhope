@@ -5,19 +5,21 @@ import { Counter } from './Counter';
 import { Hello } from './Hello';
 import InteractiveWelcome from './InteractiveWelcome';
 import Login from './Login';
+import UncontrolledLogin from './UncontrolledLogin';
 import { Welcome } from './Welcome';
 
 export class App extends React.Component {
   render() {
     return (
       <div>
-        <Hello />
+        {/* <Hello />
         <Welcome name="John" age={19} />
         <ClickCounter />
         <Counter initialValue={10} incTime={500} incAmount={10}></Counter>
         <ClickTracker />
         <InteractiveWelcome /> 
-        <Login  />
+        <Login  /> */}
+        <UncontrolledLogin />
       </div>
     );
   }
