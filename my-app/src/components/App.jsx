@@ -12,9 +12,25 @@ import Login from './Login';
 import ToDoList from './ToDoList';
 import UncontrolledLogin from './UncontrolledLogin';
 import { Welcome } from './Welcome';
+import DisplayLanguage from './DisplayLanguage';
+import { LanguageContext } from './LanguageContext';
 
 
 export class App extends React.Component {
+  
+  state = {
+    language: 'en'
+  }
+
+handleLangChange = (event) => {
+  const lang = event.target.value
+    this.setState({
+        language: lang
+    })
+    
+}
+
+
   render() {
     const persons = [
       {id: 1, name: "Rasam"},
@@ -26,9 +42,9 @@ export class App extends React.Component {
     return (
       <div>
 
-        <Container title={container_title}>
+        {/* <Container title={container_title}>
         <Hello />
-        {/* <Welcome name="John" age={19} /> */}
+        <Welcome name="John" age={19} />
         <ClickCounter/>
         <Counter initialValue={10} incTime={500} incAmount={30}></Counter>
         <ClickTracker />
@@ -49,9 +65,18 @@ export class App extends React.Component {
           </ul>
         )}
 
-        </ToDoList>
-
+        </ToDoList> */}
         
+        <div>
+            <select value={this.state.language} onChange={this.handleLangChange}> 
+                <option value="en">English</option>
+                <option value="tr">Turkish</option> 
+            </select>
+        </div>
+
+        <LanguageContext.Provider value={this.state.language}>
+          <DisplayLanguage/>
+        </LanguageContext.Provider>
 
       </div>
     );
