@@ -36,14 +36,16 @@ export class Login extends Component {
   render() {
     const {username, password} = this.state;
     const isDisabled = !username || !password;
-
+    const myStyle = {
+      backgroundColor : this.state.password.length >= 8 ? "green" : "red"  
+    }
     return (
       <div className='login'>
         
         <input type="text" name="username" onChange={this.handleChange} value={this.state.username}/>
         <input type="password" name="password" onChange={this.handleChange} value={this.state.password}/>
         <input type="checkbox"  name="remember" onChange={this.handleChange} checked={this.state.remember}/> 
-        <button onLogin={this.clickHandler} disabled={isDisabled}>Login</button>
+        <button style={myStyle} onLogin={this.clickHandler} disabled={isDisabled}>Login</button>
         <button type="reset" onClick={this.handleReset}>Reset</button>
       </div>
     )

@@ -32,7 +32,7 @@ export class Counter extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={{backgroundColor: "red" , color: "blue", textAlign: "center"}}>
         <h1>
           <CounterDisplay count={this.state.count}></CounterDisplay>
         </h1>

@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .welcome {
     border: 2px solid red;
     background-color: azure;
