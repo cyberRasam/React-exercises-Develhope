@@ -22,13 +22,14 @@ export class App extends React.Component {
       {id: 3, name: "Shy"},
       {id: 4, name: "Behdad"}
     ]
+    const container_title = "The title which passed to container component"
     return (
       <div>
 
-        <Container>
+        <Container title={container_title}>
         <Hello />
         {/* <Welcome name="John" age={19} /> */}
-        <ClickCounter />
+        <ClickCounter/>
         <Counter initialValue={10} incTime={500} incAmount={30}></Counter>
         <ClickTracker />
         <InteractiveWelcome /> 
