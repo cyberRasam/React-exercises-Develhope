@@ -3,12 +3,11 @@ import React, { Component } from 'react'
 export class Container extends Component {
   render() {
     return (
-      <div>
-        <h1>{this.props.title}</h1>
+      <div className='bg-blue border-4 border-red-500'>
         {this.props.children}
       </div>
     )
   }
 }
 
-export default Component
+export default Container
