@@ -1,4 +1,5 @@
 import React from 'react';
+
 import ClickCounter from './ClickCounter';
 import ClickTracker from './ClickTracker';
 import Colors from './Colors';
@@ -11,6 +12,7 @@ import ToDoList from './ToDoList';
 import UncontrolledLogin from './UncontrolledLogin';
 import { Welcome } from './Welcome';
 
+
 export class App extends React.Component {
   render() {
     const persons = [
@@ -21,17 +23,17 @@ export class App extends React.Component {
     ]
     return (
       <div>
-        {/* <Hello />
-        <Welcome name="John" age={19} />
+        <Hello />
+        {/* <Welcome name="John" age={19} /> */}
         <ClickCounter />
         <Counter initialValue={10} incTime={500} incAmount={30}></Counter>
         <ClickTracker />
         <InteractiveWelcome /> 
         <Login  />
         <UncontrolledLogin /> 
-        <Colors items={persons}/>  */}
+        <Colors items={persons}/> 
         
-        <ToDoList render={(items, handleRemove) => (
+        {/* <ToDoList render={(items, handleRemove) => (
           <ul>
             {items.map((todo, index) => (
               <li key={index}>
@@ -40,7 +42,9 @@ export class App extends React.Component {
               </li>
             ))}
           </ul>
-        )} />
+        )} /> */}
+
+        
 
       </div>
     );
