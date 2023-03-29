@@ -37,7 +37,8 @@ export class App extends React.Component {
         <UncontrolledLogin /> 
         <Colors items={persons}/> 
         </Container>
-        {/* <ToDoList render={(items, handleRemove) => (
+        <ToDoList> 
+        {(items, handleRemove) => (
           <ul>
             {items.map((todo, index) => (
               <li key={index}>
@@ -46,7 +47,9 @@ export class App extends React.Component {
               </li>
             ))}
           </ul>
-        )} /> */}
+        )}
+
+        </ToDoList>
 
         
 

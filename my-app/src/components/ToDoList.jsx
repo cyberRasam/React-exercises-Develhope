@@ -43,7 +43,7 @@ export class ToDoList extends Component {
     } 
 
   render() {
-    const {render} = this.props;
+    
     const {items} = this.state
     return (
       <div>
@@ -60,7 +60,7 @@ export class ToDoList extends Component {
               )
             }
         </ul> */}
-        {render(items, this.handleRemove)}
+        {this.props.children(items, this.handleRemove)}
 
       </div>
     )
