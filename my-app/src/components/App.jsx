@@ -66,7 +66,7 @@ handleLangChange = (event) => {
         )}
 
         </ToDoList> */}
-        
+        <Welcome name="John" age={19} />
         <div>
             <select value={this.state.language} onChange={this.handleLangChange}> 
                 <option value="en">English</option>
