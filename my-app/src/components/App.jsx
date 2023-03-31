@@ -78,7 +78,7 @@ handleLangChange = (event) => {
         <LanguageContext.Provider value={this.state.language}>
           <DisplayLanguage/>
         </LanguageContext.Provider>
-        <Sum numbers={[1,2,3,4]} />
+        <Sum  />
       </div>
     );
   }
