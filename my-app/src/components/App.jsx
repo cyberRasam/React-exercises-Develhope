@@ -14,6 +14,7 @@ import UncontrolledLogin from './UncontrolledLogin';
 import { Welcome } from './Welcome';
 import DisplayLanguage from './DisplayLanguage';
 import { LanguageContext } from './LanguageContext';
+import { Sum } from './Sum';
 
 
 export class App extends React.Component {
@@ -77,7 +78,7 @@ handleLangChange = (event) => {
         <LanguageContext.Provider value={this.state.language}>
           <DisplayLanguage/>
         </LanguageContext.Provider>
-
+        <Sum numbers={[1,2,3,4]} />
       </div>
     );
   }

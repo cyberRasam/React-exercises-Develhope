@@ -2,7 +2,7 @@ import React from 'react';
 import { Age } from './Age';
 
 
-export  function Welcome(props) {
+export function Welcome(props) {
   return <div>
     {props.name && <h2>Welcome {props.name}</h2>}
     {!props.name && <h2>Welcome Guest</h2>}
@@ -12,7 +12,6 @@ export  function Welcome(props) {
 // export class Welcome extends React.Component {
 //   render() {
 //     return (
-
 //       <div className='welcome'>
 //         {
 //           !!this.props.name 
