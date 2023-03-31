@@ -65,8 +65,8 @@ handleLangChange = (event) => {
             ))}
           </ul>
         )}
-
-        </ToDoList> */}
+        
+        </ToDoList>
         <Welcome name="John" age={19} />
         <div>
             <select value={this.state.language} onChange={this.handleLangChange}> 
@@ -78,7 +78,8 @@ handleLangChange = (event) => {
         <LanguageContext.Provider value={this.state.language}>
           <DisplayLanguage/>
         </LanguageContext.Provider>
-        <Sum  />
+        <Sum  /> */}
+        <ClickCounter />
       </div>
     );
   }
