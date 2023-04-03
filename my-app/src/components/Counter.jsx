@@ -59,7 +59,7 @@ export const Counter = () => {
     return () => {
       clearInterval(interval)
     }
-  },[])
+  },[count])
 
   return (
     <div>

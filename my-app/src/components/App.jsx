@@ -15,6 +15,7 @@ import { Welcome } from './Welcome';
 import DisplayLanguage from './DisplayLanguage';
 import { LanguageContext } from './LanguageContext';
 import { Sum } from './Sum';
+import { GithubUser } from './GithubUser';
 
 
 export class App extends React.Component {
@@ -82,6 +83,7 @@ handleLangChange = (event) => {
         <ClickCounter />
         <Login />
         <Counter/>
+        <GithubUser username={`CyberRasam`}/>
       </div>
     );
   }
