@@ -81,6 +81,7 @@ handleLangChange = (event) => {
         <Sum  /> */}
         <ClickCounter />
         <Login />
+        <Counter/>
       </div>
     );
   }
