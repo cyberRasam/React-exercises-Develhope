@@ -17,6 +17,7 @@ export const GithubUser = ({username}) => {
         return <p>Loading...</p>;
     }
     
+    
     return (
         <div>
             <h1>{userData.login}</h1>
