@@ -81,11 +81,11 @@ handleLangChange = (event) => {
           <DisplayLanguage/>
         </LanguageContext.Provider>
         <Sum  /> */}
-        {/* <ClickCounter />
+        <ClickCounter />
         <Login />
         <Counter/>
-        <GithubUser username={`CyberRasam`}/> */}
-        <GithubUserList />
+        <GithubUser username="cyberRasam"/>
+        
       </div>
     );
   }
