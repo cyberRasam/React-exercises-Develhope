@@ -15,5 +15,5 @@ export function useCounter(initialValue = 0) {
         setCount(initialValue)
     }
 
-    return [count, increment, decrement, reset]
+    return {count, increment, decrement, reset}
 }
