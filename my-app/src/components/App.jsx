@@ -14,6 +14,10 @@ import UncontrolledLogin from './UncontrolledLogin';
 import { Welcome } from './Welcome';
 import DisplayLanguage from './DisplayLanguage';
 import { LanguageContext } from './LanguageContext';
+import FillteredList from './FilteredList';
+
+
+
 
 
 export class App extends React.Component {
@@ -39,6 +43,25 @@ handleLangChange = (event) => {
       {id: 4, name: "Behdad"}
     ]
     const container_title = "The title which passed to container component"
+    const people = [
+      
+        {
+          name: "Rasam",
+          id:2,
+          age: 23,
+        },
+        {
+          name: "Roham",
+          id: 1,
+          age: 22,
+        },
+        {
+          name: "Mercede",
+          id: 3,
+          age: 17,
+        }
+      
+    ]
     return (
       <div>
 
@@ -67,7 +90,7 @@ handleLangChange = (event) => {
 
         </ToDoList> */}
         
-        <div>
+        {/* <div>
             <select value={this.state.language} onChange={this.handleLangChange}> 
                 <option value="en">English</option>
                 <option value="tr">Turkish</option> 
@@ -76,8 +99,8 @@ handleLangChange = (event) => {
 
         <LanguageContext.Provider value={this.state.language}>
           <DisplayLanguage/>
-        </LanguageContext.Provider>
-
+        </LanguageContext.Provider> */}
+        <FillteredList list={people} />
       </div>
     );
   }
