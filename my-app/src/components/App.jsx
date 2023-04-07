@@ -15,6 +15,7 @@ import { Welcome } from './Welcome';
 import DisplayLanguage from './DisplayLanguage';
 import { LanguageContext } from './LanguageContext';
 import FillteredList from './FilteredList';
+import { CarDetails } from './CarDetails';
 
 
 
@@ -62,6 +63,12 @@ handleLangChange = (event) => {
         }
       
     ]
+
+    const cars = {
+      model: "BMW",
+      year: "2021",
+      color: "Gray"
+    }
     return (
       <div>
 
@@ -100,7 +107,7 @@ handleLangChange = (event) => {
         <LanguageContext.Provider value={this.state.language}>
           <DisplayLanguage/>
         </LanguageContext.Provider> */}
-        <FillteredList list={people} />
+        <CarDetails initialData={cars} />
       </div>
     );
   }
