@@ -1,92 +1,30 @@
-import React from 'react';
-import { Container } from './Container';
-
-import ClickCounter from './ClickCounter';
-import ClickTracker from './ClickTracker';
-import Colors from './Colors';
-
-import { Counter } from './Counter';
-import { Hello } from './Hello';
-import InteractiveWelcome from './InteractiveWelcome';
-import Login from './Login';
-import ToDoList from './ToDoList';
-import UncontrolledLogin from './UncontrolledLogin';
-import { Welcome } from './Welcome';
-import DisplayLanguage from './DisplayLanguage';
+import React, { useState } from 'react';
+import Welcome from './Welcome'
 import { LanguageContext } from './LanguageContext';
-import { Sum } from './Sum';
-import { GithubUser } from './GithubUser';
-import { GithubUserList } from './GithubUserList';
 
+export default function App() {
 
-export class App extends React.Component {
+  const [language, setLanguage] = useState('en')
   
-  state = {
-    language: 'en'
-  }
 
-handleLangChange = (event) => {
+function handleLangChange  (event)  {
   const lang = event.target.value
-    this.setState({
-        language: lang
-    })
-    
+    setLanguage(lang)    
 }
 
-
-  render() {
-    const persons = [
-      {id: 1, name: "Rasam"},
-      {id: 2, name: "Roham"},
-      {id: 3, name: "Shy"},
-      {id: 4, name: "Behdad"}
-    ]
-    const container_title = "The title which passed to container component"
     return (
       <div>
+        <select value={language} onChange={handleLangChange}>
+          <option value="English">English</option>
+          <option value="Turkish">Turkish</option>
+        </select>
 
-        {/* <Container title={container_title}>
-        <Hello />
-        <Welcome name="John" age={19} />
-        <ClickCounter/>
-        <Counter initialValue={10} incTime={500} incAmount={30}></Counter>
-        <ClickTracker />
-        <InteractiveWelcome /> 
-        <Login  />
-        <UncontrolledLogin /> 
-        <Colors items={persons}/> 
-        </Container>
-        <ToDoList> 
-        {(items, handleRemove) => (
-          <ul>
-            {items.map((todo, index) => (
-              <li key={index}>
-                {todo}
-                <button type='button' onClick={()=> handleRemove(index)}>Remove</button>
-              </li>
-            ))}
-          </ul>
-        )}
-        
-        </ToDoList>
-        <Welcome name="John" age={19} />
-        <div>
-            <select value={this.state.language} onChange={this.handleLangChange}> 
-                <option value="en">English</option>
-                <option value="tr">Turkish</option> 
-            </select>
-        </div>
+        <LanguageContext.Provider value={language}>
+          <Welcome>
 
-        <LanguageContext.Provider value={this.state.language}>
-          <DisplayLanguage/>
+          </Welcome>
         </LanguageContext.Provider>
-        <Sum  /> */}
-        <ClickCounter />
-        <Login />
-        <Counter/>
-        <GithubUser username={`cyberRasam`}/>
-        
       </div>
     );
-  }
 }
+
