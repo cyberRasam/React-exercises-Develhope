@@ -32,6 +32,7 @@ function handleLangChange  (event)  {
       <div>
         <Routes>
           <Route path='/' element={<Welcome name={`Rasam`}/>} />
+          <Route path='/counter' element={<Counter />} ></Route>
         </Routes>
       </div>
     );
