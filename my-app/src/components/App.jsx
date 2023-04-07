@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Welcome from './Welcome'
 import { LanguageContext } from './LanguageContext';
 import { Counter } from './Counter';
+import { Route, Routes } from 'react-router-dom';
 
 export default function App() {
 
@@ -14,18 +15,24 @@ function handleLangChange  (event)  {
 }
 
     return (
+      // <div>
+      //   <select value={language} onChange={handleLangChange}>
+      //     <option value="English">English</option>
+      //     <option value="Turkish">Turkish</option>
+      //   </select>
+
+      //   <LanguageContext.Provider value={language}>
+      //     <Welcome />
+      //   </LanguageContext.Provider>
+
+      //   <Counter initialValue={42} />
+
+      // </div>
+      
       <div>
-        <select value={language} onChange={handleLangChange}>
-          <option value="English">English</option>
-          <option value="Turkish">Turkish</option>
-        </select>
-
-        <LanguageContext.Provider value={language}>
-          <Welcome />
-        </LanguageContext.Provider>
-
-        <Counter initialValue={42} />
-
+        <Routes>
+          <Route path='/' element={<Welcome name={`Rasam`}/>} />
+        </Routes>
       </div>
     );
 }

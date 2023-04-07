@@ -5,7 +5,6 @@ import DisplayLanguage from './DisplayLanguage';
 
 export default function Welcome(props) {
   return <div>
-    <DisplayLanguage/>
     {props.name && <h2>Welcome {props.name}</h2>}
     {!props.name && <h2>Welcome Guest</h2>}
   </div>
