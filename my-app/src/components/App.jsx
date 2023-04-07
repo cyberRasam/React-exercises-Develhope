@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Welcome from './Welcome'
 import { LanguageContext } from './LanguageContext';
+import { Counter } from './Counter';
 
 export default function App() {
 
-  const [language, setLanguage] = useState('en')
+  const [language, setLanguage] = useState('English')
   
 
 function handleLangChange  (event)  {
@@ -20,10 +21,11 @@ function handleLangChange  (event)  {
         </select>
 
         <LanguageContext.Provider value={language}>
-          <Welcome>
-
-          </Welcome>
+          <Welcome />
         </LanguageContext.Provider>
+
+        <Counter initialValue={42} />
+
       </div>
     );
 }
