@@ -24,15 +24,17 @@ export default function GithubUserList  ()  {
         <div>
             <input type="text" value={input} onChange={handleInput} />
             <button onClick={handleClick}>Send</button>
-            {username.map((user, index) => {
-        return (
-          <Link to={user} key={index}>
+            <ul>
+              {username.map((user, index) => {
+                return (
+                  <Link to={user} key={index}>
+                    <ShowGithubUSer username={user} />
+                  </Link>
+                );
+              })}
+            </ul>
             <br />
-            <ShowGithubUSer username={user} />
-          </Link>
-          
-        );
-      })}
+            <Outlet />
         </div>
     )
 }

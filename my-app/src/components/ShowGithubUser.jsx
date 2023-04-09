@@ -5,7 +5,6 @@ import {GithubUser} from './GithubUser'
  return (
     <div>
         <GithubUser username={username} />
-    
     </div>
  )
 }
