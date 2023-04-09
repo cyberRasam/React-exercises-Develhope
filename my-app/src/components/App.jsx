@@ -4,8 +4,10 @@ import { LanguageContext } from './LanguageContext';
 import { Counter } from './Counter';
 import { Link, Route, Routes } from 'react-router-dom';
 import { ShowGithubUSer } from './ShowGithubUser';
-import GithubUser from './GithubUser';
+import {GithubUser} from './GithubUser';
 import { NotFound } from './NotFound';
+import GithubUserList from './GithubUserList'
+
 
 export default function App() {
 
@@ -36,7 +38,9 @@ function handleLangChange  (event)  {
         <Routes>
           <Route path='/' element={<Welcome name={`Rasam`}/>} />
           <Route path='/counter' element={<Counter />} ></Route>
-          <Route path='/users:username' element={<GithubUser username={`cyberRasam`} />} />
+          <Route path='/users' element={<GithubUserList/>}>
+            <Route path=':username' element={<GithubUser/>} />
+          </Route>
           <Route path='*' element={<NotFound />} />
         </Routes>
         <br />
@@ -44,7 +48,8 @@ function handleLangChange  (event)  {
         <br />
         <Link to={"/counter"}>Counter  </Link> 
         <br />
-        <Link to={"/users:username"}>My Github</Link>
+        <Link to={"/users"}>My Github</Link>
+        
       </div>
     );
 }

@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
 import { GithubUser } from "./GithubUser"
+import { Link, Outlet } from "react-router-dom"
+import { ShowGithubUSer } from "./ShowGithubUser"
 
-export const GithubUserList = () => {
+export default function GithubUserList  ()  {
     const [username, setUserName] = useState([])
     const [input, setInput] = useState('')
     
@@ -24,10 +26,11 @@ export const GithubUserList = () => {
             <button onClick={handleClick}>Send</button>
             {username.map((user, index) => {
         return (
-          <GithubUser
-            key={index}
-            username={user}
-          />
+          <Link to={user} key={index}>
+            <br />
+            <ShowGithubUSer username={user} />
+          </Link>
+          
         );
       })}
         </div>
