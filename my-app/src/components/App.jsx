@@ -5,6 +5,7 @@ import { Counter } from './Counter';
 import { Link, Route, Routes } from 'react-router-dom';
 import { ShowGithubUSer } from './ShowGithubUser';
 import GithubUser from './GithubUser';
+import { NotFound } from './NotFound';
 
 export default function App() {
 
@@ -36,6 +37,7 @@ function handleLangChange  (event)  {
           <Route path='/' element={<Welcome name={`Rasam`}/>} />
           <Route path='/counter' element={<Counter />} ></Route>
           <Route path='/users:username' element={<GithubUser username={`cyberRasam`} />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
         <br />
         <Link to={"/"}>Home  </Link> 
