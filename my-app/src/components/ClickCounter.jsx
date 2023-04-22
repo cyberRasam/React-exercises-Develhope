@@ -1,29 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import CounterButton from './CounterButton';
 
-export class ClickCounter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: 0,
-    };
+export const ClickCounter = () => {
+  const [count, setCount] = useState(0)
+  function handleCounter() {
+    setCount (count + 1)
+  
   }
-
-  handleClick = () => {
-    this.setState((state) => {
-      return {
-        count: this.state.count + 1,
-      };
-    });
-  };
-  render() {
+  function onCounterChange(){
+    console.log(`current counter is ${count}`)
+  }
+  useEffect(()=>{
+    onCounterChange()
+  },[count])
     return (
       <div>
-        <h1>{this.state.count}</h1>
-        <CounterButton onClick= {this.handleClick}/>
+        <h1>{count}</h1>
+        <CounterButton onClick= {handleCounter}/>
       </div>
     );
-  }
 }
 
 export default ClickCounter;

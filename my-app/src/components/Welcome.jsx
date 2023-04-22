@@ -1,22 +1,12 @@
 import React from 'react';
 import { Age } from './Age';
+import DisplayLanguage from './DisplayLanguage';
 
-export class Welcome extends React.Component {
-  render() {
-    return (
 
-      <div className='welcome'>
-        {
-          !!this.props.name 
-          ? <p>Welcome {this.props.name}</p> 
-          : <p>Welcome Guest</p>
-        }
-       {this.props.age >= 18 && this.props.age <= 65  && this.props.name === "John" ? <Age age= {this.props.age}></Age> : <Age></Age> }
-      </div>
-    );
-  }
+export default function Welcome({name = "Rasam"}) {
+  return <div>
+    {name && <h2>Welcome {name}</h2>}
+    {!name && <h2>Welcome Guest</h2>}
+  </div>
 }
 
-Welcome.defaultProps = {
-  name: "Rasam"
-}

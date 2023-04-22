@@ -1,114 +1,60 @@
-import React from 'react';
-import { Container } from './Container';
-
-import ClickCounter from './ClickCounter';
-import ClickTracker from './ClickTracker';
-import Colors from './Colors';
-
-import { Counter } from './Counter';
-import { Hello } from './Hello';
-import InteractiveWelcome from './InteractiveWelcome';
-import Login from './Login';
-import ToDoList from './ToDoList';
-import UncontrolledLogin from './UncontrolledLogin';
-import { Welcome } from './Welcome';
-import DisplayLanguage from './DisplayLanguage';
+import React, { useState } from 'react';
+import Welcome from './Welcome'
 import { LanguageContext } from './LanguageContext';
-import FillteredList from './FilteredList';
-import { CarDetails } from './CarDetails';
+import { Counter } from './Counter';
+import { Link, Route, Routes } from 'react-router-dom';
+import { ShowGithubUSer } from './ShowGithubUser';
+import {GithubUser} from './GithubUser';
+import { NotFound } from './NotFound';
+import GithubUserList from './GithubUserList'
 
 
+export default function App() {
 
-
-
-export class App extends React.Component {
+  const [language, setLanguage] = useState('English')
   
-  state = {
-    language: 'en'
-  }
 
-handleLangChange = (event) => {
+function handleLangChange  (event)  {
   const lang = event.target.value
-    this.setState({
-        language: lang
-    })
-    
+    setLanguage(lang)    
 }
 
-
-  render() {
-    const persons = [
-      {id: 1, name: "Rasam"},
-      {id: 2, name: "Roham"},
-      {id: 3, name: "Shy"},
-      {id: 4, name: "Behdad"}
-    ]
-    const container_title = "The title which passed to container component"
-    const people = [
-      
-        {
-          name: "Rasam",
-          id:2,
-          age: 23,
-        },
-        {
-          name: "Roham",
-          id: 1,
-          age: 22,
-        },
-        {
-          name: "Mercede",
-          id: 3,
-          age: 17,
-        }
-      
-    ]
-
-    const cars = {
-      model: "BMW",
-      year: "2021",
-      color: "Gray"
-    }
     return (
+      // <div>
+      //   <select value={language} onChange={handleLangChange}>
+      //     <option value="English">English</option>
+      //     <option value="Turkish">Turkish</option>
+      //   </select>
+
+      //   <LanguageContext.Provider value={language}>
+      //     <Welcome />
+      //   </LanguageContext.Provider>
+
+      //   <Counter initialValue={42} />
+
+      // </div>
+      
       <div>
-
-        {/* <Container title={container_title}>
-        <Hello />
-        <Welcome name="John" age={19} />
-        <ClickCounter/>
-        <Counter initialValue={10} incTime={500} incAmount={30}></Counter>
-        <ClickTracker />
-        <InteractiveWelcome /> 
-        <Login  />
-        <UncontrolledLogin /> 
-        <Colors items={persons}/> 
-        </Container>
-        <ToDoList> 
-        {(items, handleRemove) => (
-          <ul>
-            {items.map((todo, index) => (
-              <li key={index}>
-                {todo}
-                <button type='button' onClick={()=> handleRemove(index)}>Remove</button>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        </ToDoList> */}
+        <Routes>
+          <Route path='/' element={<Welcome name={`Rasam`}/>} />
+          <Route path='/counter' element={<Counter />} ></Route>
+          <Route path='/users' element={<GithubUserList/>}>
+          <Route
+            index
+            element={<p><strong>Add a user or select it from amazing people list</strong></p>}
+          />
+            <Route path=':username' element={<GithubUser/>} />
+          </Route>
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+        <br />
+        <Link to={"/"}>Home  </Link> 
+        <br />
+        <Link to={"/counter"}>Counter  </Link> 
+        <br />
+        <Link to={"/users"}>My Github</Link>
         
-        {/* <div>
-            <select value={this.state.language} onChange={this.handleLangChange}> 
-                <option value="en">English</option>
-                <option value="tr">Turkish</option> 
-            </select>
-        </div>
-
-        <LanguageContext.Provider value={this.state.language}>
-          <DisplayLanguage/>
-        </LanguageContext.Provider> */}
-        <CarDetails initialData={cars} />
       </div>
     );
-  }
 }
+

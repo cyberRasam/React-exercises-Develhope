@@ -1,48 +1,19 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { CounterDisplay } from './CounterDisplay';
+import { useCounter } from './useCounter';
 
-export class Counter extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: this.props.initialValue,
-    };
-  }
 
-  componentDidMount() {
-    this.intervalID = setInterval(() => {
-      this.setState((state) => {
-        const newCount = state.count + this.props.incAmount;
-        return { count: newCount };
-      });
-    }, this.props.incTime);
-  }
+export const Counter = ({initialValue = 0}) => {
+  
+  const [count, increment, decrement, reset] = useCounter(initialValue);
 
-  componentWillUnmount() {
-    clearInterval(this.intervalID);
-  }
-
-  componentDidUpdate(prevProp, prevState) {
-    if (this.state.count > this.props.initialValue * 10) {
-      this.setState((state) => {
-        return { count: this.props.initialValue };
-      });
-    }
-  }
-
-  render() {
-    return (
-      <div style={{backgroundColor: "red" , color: "blue", textAlign: "center"}}>
-        <h1>
-          <CounterDisplay count={this.state.count}></CounterDisplay>
-        </h1>
-      </div>
-    );
-  }
+  
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={increment} >Increment</button>
+      <button onClick={decrement} >Decrement</button>
+      <button onClick={reset} >Reset</button>
+    </div>
+  )
 }
-
-Counter.defaultProps = {
-  initialValue: 0,
-  incAmount: 1,
-  incTime: 1000,
-};
