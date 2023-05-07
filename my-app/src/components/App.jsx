@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Welcome from './Welcome'
 import { LanguageContext } from './LanguageContext';
 import { Counter } from './Counter';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useParams } from 'react-router-dom';
 import { ShowGithubUSer } from './ShowGithubUser';
 import GithubUser from './GithubUser';
 
@@ -35,7 +35,7 @@ function handleLangChange  (event)  {
         <Routes>
           <Route path='/' element={<Welcome name={`Rasam`}/>} />
           <Route path='/counter' element={<Counter />} ></Route>
-          <Route path='/users:username' element={<GithubUser username={`cyberRasam`} />} />
+          <Route path='/users/:username' element={<GithubUser />} />
         </Routes>
       </div>
     );

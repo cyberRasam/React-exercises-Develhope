@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 export default function useGithubUser(username) {
   const [userData, setUserData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(null); 
 
   useEffect(() => {
     async function fetchUserData() {
