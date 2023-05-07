@@ -5,8 +5,8 @@ export default function useGithubUser(username) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    async function fetchUserData() {
+  
+     const fetchUserData = async () => {
       setIsLoading(true);
       setError(null);
       try {
@@ -18,9 +18,10 @@ export default function useGithubUser(username) {
       }
       setIsLoading(false);
     }
-    fetchUserData();
-  }, [username]);
+    useEffect(() => {
+      fetchUserData();
+    }, [username]);
 
-  return { userData, isLoading, error };
+  return { userData, isLoading, error, fetchUserData };
 }
 
