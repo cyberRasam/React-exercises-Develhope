@@ -21,7 +21,7 @@ export function GithubUser({ username }) {
       {users && (
         <li>
           <Link to={`https://www.github.com/${username}`}
-            target={'_blank'}>{users.login}</Link>
+            target={'_blank'}>{users.name}</Link>
         </li>
       )}
     </div>
