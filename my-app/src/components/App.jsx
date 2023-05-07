@@ -39,7 +39,9 @@ function handleLangChange  (event)  {
           <Route path='/' element={<Welcome name={`Rasam`}/>} />
           <Route path='/counter' element={<Counter />} ></Route>
           <Route path='/users' element={<GithubUserList/>}>
+
             <Route path=':username' element={<GithubUser/>} />
+          
           </Route>
           <Route path='*' element={<NotFound />} />
         </Routes>
